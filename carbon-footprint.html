@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄🎄 CARBONOVA</title>
+    
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0eea96 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.231);
+            color: white;
+            text-align:  center;
+            padding: 40px 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        container {
+            max-width: 1200px;
+            margin:  auto;
+            padding: 20px;
+        }
+        
+        .section {
+            background: white;
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section h2 {
+            color: #66ea71;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .calculator {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .result {
+            background: #e8f5e9;
+            padding: 20px;
+            border-left: 4px solid #4caf50;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2e7d32;
+            margin: 10px 0;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .tip-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tip-card h3 {
+            margin-bottom: 23px;
+        }
+        
+        .impact-chart {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .impact-item {
+            text-align: center;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 18px;
+        }
+        
+        .impact-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .impact-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: brown;
+            background: rgba(0, 0, 0, 0.2);
+            margin-top: 10px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌍 Carbonova</h1>
+        <p>Calculate your environmental impact and learn how to reduce it</p>
+    </header>
+    
+    <container>
+        <!-- What is Carbon Footprint Section -->
+        <div class="section">
+            <h2>What is a Carbon Footprint?</h2>
+            <p>A carbon footprint is the total amount of greenhouse gases (primarily carbon dioxide) produced by human activities. It measures the impact of our daily choices on the environment. The average person produces about 4 metric tons of CO₂ per year, but this varies significantly based on lifestyle and location.</p>
+            <div class="impact-chart">
+                <div class="impact-item">
+                    <div class="impact-number">4 tons</div>
+                    <div class="impact-label">Average Annual CO₂</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number">50%</div>
+                    <div class="impact-label">From Transportation</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number">25%</div>
+                    <div class="impact-label">From Home Energy</div>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number">15%</div>
+                    <div class="impact-label">From Food & Diet</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Calculator Section -->
+        <div class="section">
+            <h2>Calculate Your Carbon Footprint</h2>
+            <p>Estimate your annual carbon footprint by providing information about your lifestyle:</p>
+            
+            <div class="calculator">
+                <div class="grid-2">
+                    <!-- Transportation -->
+                    <div>
+                        <h3>🚗 Transportation</h3>
+                        <div class="form-group">
+                            <label for="carMiles">Miles driven per week:</label>
+                            <input type="number" id="carMiles" min="0" max="1000" value="150">
+                        </div>
+                        <div class="form-group">
+                            <label for="carType">Car efficiency:</label>
+                            <select id="carType">
+                                <option value="25">Average (25 mpg)</option>
+                                <option value="35">Good (35 mpg)</option>
+                                <option value="50">Excellent (50 mpg)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="flightHours">Flight hours per year:</label>
+                            <input type="number" id="flightHours" min="0" max="100" value="5">
+                        </div>
+                    </div>
+                    
+                    <!-- Home Energy -->
+                    <div>
+                        <h3>🏠 Home Energy</h3>
+                        <div class="form-group">
+                            <label for="electricity">Monthly electricity (kWh):</label>
+                            <input type="number" id="electricity" min="0" max="2000" value="900">
+                        </div>
+                        <div class="form-group">
+                            <label for="naturalGas">Monthly natural gas (therms):</label>
+                            <input type="number" id="naturalGas" min="0" max="200" value="40">
+                        </div>
+                    </div>
+                    
+                    <!-- Diet -->
+                    <div>
+                        <h3>🍽️ Diet</h3>
+                        <div class="form-group">
+                            <label for="diet">Diet type:</label>
+                            <select id="diet">
+                                <option value="7">Meat heavy (7 tons/year)</option>
+                                <option value="5">Mixed (5 tons/year)</option>
+                                <option value="3">Vegetarian (3 tons/year)</option>
+                                <option value="2">Vegan (2 tons/year)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Consumption -->
+                    <div>
+                        <h3>🛍️ Consumption</h3>
+                        <div class="form-group">
+                            <label for="shopping">Shopping frequency:</label>
+                            <select id="shopping">
+                                <option value="2">Minimal (2 tons/year)</option>
+                                <option value="3">Moderate (3 tons/year)</option>
+                                <option value="4">High (4 tons/year)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="calculateFootprint()">Calculate My Carbon Footprint</button>
+                
+                <div class="result" id="result">
+                    <h3>Your Annual Carbon Footprint</h3>
+                    <div class="result-value" id="resultValue">0</div>
+                    <p id="resultMessage"></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reduction Tips -->
+        <div class="section">
+            <h2>How to Reduce Your Carbon Footprint</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>🚴 Transportation</h3>
+                    <ul>
+                        <li>Use public transit or carpool</li>
+                        <li>Consider electric vehicles</li>
+                        <li>Walk or bike for short trips</li>
+                        <li>Reduce flying when possible</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>⚡ Home Energy</h3>
+                    <ul>
+                        <li>Switch to renewable energy</li>
+                        <li>Improve insulation</li>
+                        <li>Use LED light bulbs</li>
+                        <li>Install a programmable thermostat</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>🥗 Food & Diet</h3>
+                    <ul>
+                        <li>Reduce meat consumption</li>
+                        <li>Buy local and seasonal</li>
+                        <li>Reduce food waste</li>
+                        <li>Compost organic waste</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>♻️ Consumption</h3>
+                    <ul>
+                        <li>Buy less, buy quality</li>
+                        <li>Choose sustainable brands</li>
+                        <li>Recycle and reuse</li>
+                        <li>Thrift and secondhand</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>💡 General Tips</h3>
+                    <ul>
+                        <li>Offset carbon emissions</li>
+                        <li>Support green initiatives</li>
+                        <li>Track your progress</li>
+                        <li>Educate others</li>
+                    </ul>
+                </div>
+                
+                <div class="tip-card">
+                    <h3>🌱 Long-term Changes</h3>
+                    <ul>
+                        <li>Solar panel installation</li>
+                        <li>Electric vehicle purchase</li>
+                        <li>Plant trees</li>
+                        <li>Support carbon removal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Resources -->
+        <div class="section">
+            <h2>Additional Resources</h2>
+            <p>Learn more about reducing your carbon footprint:</p>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>EPA Carbon Footprint Calculator:</strong> Official US EPA tool for calculating your environmental impact</li>
+                <li><strong>Carbon Footprint Ltd:</strong> Comprehensive carbon accounting and offset platform</li>
+                <li><strong>Climate Action Tracker:</strong> Monitor global climate commitments</li>
+                <li><strong>Project Drawdown:</strong> Explore solutions to reverse global warming</li>
+                <li><strong>Sustainable Development Goals:</strong> UN framework for sustainable living</li>
+            </ul>
+        </div>
+    </container>
+    
+    <footer>
+        <p>&copy; 2024 Carbon Footprint Calculator | Act now for a sustainable future 🌱</p>
+    </footer>
+    
+    <script>
+        function calculateFootprint() {
+            // Get input values
+            const carMiles = parseInt(document.getElementById('carMiles').value) || 0;
+            const carType = parseInt(document.getElementById('carType').value) || 25;
+            const flightHours = parseInt(document.getElementById('flightHours').value) || 0;
+            const electricity = parseInt(document.getElementById('electricity').value) || 0;
+            const naturalGas = parseInt(document.getElementById('naturalGas').value) || 0;
+            const diet = parseInt(document.getElementById('diet').value) || 5;
+            const shopping = parseInt(document.getElementById('shopping').value) || 3;
+            
+            // Calculate emissions (in metric tons CO2 per year)
+            
+            // Transportation
+            const annualCarMiles = carMiles * 52;
+            const carEmissions = (annualCarMiles / carType) * 0.41; // kg CO2 per gallon
+            const flightEmissions = flightHours * 0.25; // metric tons per hour
+            
+            // Home Energy
+            const electricityEmissions = electricity * 12 * 0.000385; // metric tons per kWh
+            const gasEmissions = naturalGas * 12 * 0.005; // metric tons per therm
+            
+            // Total
+            const totalEmissions = carEmissions + flightEmissions + electricityEmissions + gasEmissions + diet + shopping;
+            
+            // Display result
+            const resultDiv = document.getElementById('result');
+            const resultValue = document.getElementById('resultValue');
+            const resultMessage = document.getElementById('resultMessage');
+            
+            resultValue.textContent = totalEmissions.toFixed(2) + ' metric tons';
+            
+            if (totalEmissions < 2) {
+                resultMessage.textContent = '🌟 Excellent! You\'re living a low-carbon lifestyle. Keep up the great work!';
+            } else if (totalEmissions < 4) {
+                resultMessage.textContent = '👍 Good! You\'re below average. Consider implementing more changes to reduce further.';
+            } else if (totalEmissions < 6) {
+                resultMessage.textContent = '⚠️ Average. There\'s significant room for improvement. Focus on transportation and energy use.';
+            } else {
+                resultMessage.textContent = '🔴 High. Consider making substantial changes to your lifestyle to reduce your carbon footprint.';
+            }
+            
+            resultDiv.classList.add('show');
+        }
+        
+        // Calculate on page load
+        window.addEventListener('load', calculateFootprint);
+    </script>
+</body>
+</html>
